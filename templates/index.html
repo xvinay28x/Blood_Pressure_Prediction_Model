@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://i.redd.it/em566jx9ni651.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100% 
+        }
+        #he{
+            height: 2vw;
+            width: 10vw;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgb(49, 48, 48);
+            color: white;
+            font-size: 20px;
+        }
+        #he:hover{
+            height: 3vw;
+            width: 12vw;
+            border-radius: 30px;
+        }
+        #age{
+            height: 2vw;
+            width: 4vw;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgb(49, 48, 48);
+            color: white;
+            font-size: 20px;
+        }
+        #age:hover{
+            height: 35px;
+            width: 100px;
+            border-radius: 30px;
+        }
+        #bmi{
+            height: 2vw;
+            width: 5vw;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgb(49, 48, 48);
+            color: white;
+            font-size: 20px;  
+        }
+        #bmi:hover{
+            height: 35px;
+            width: 100px;
+            border-radius: 30px;
+        }
+        #sub{
+            height: 50px;
+            width: 130px;
+            border-radius: 50px;
+            font-size: medium;
+            background-color:rgb(216, 22, 103)
+        }
+        #sub:hover{
+            background-color: rgb(11, 156, 167);
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        #hading{
+            margin-top: 0px;
+        }
+        #heading{
+            background-color:rgb(45, 45, 45,80%);
+            margin-top: -0.6vw;
+            margin-left: -1vw;
+            height: 4vw;
+            width: 101vw;
+            font-size: 3vw;
+            line-height: 4vw;
+            font-family: cooper;
+            position: fixed;
+        }
+        body a{
+            text-decoration: none;
+            color: rgb(10, 10, 95);
+        }
+        #container{
+            padding-top: 4vw;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1 id="heading">BLOOD&ensp; PRESSURE&ensp; PREDICTION</h1><br><br>
+        <div id="container">
+        <form method = "POST" action = "/predict">
+        <h3 id="hading">Level&ensp;Of&ensp;Hemoglobin</h3>
+        <label for="hemo">8&ensp;</label><input id="he" type="number" value="hemo" name="Hemoglobin" min="8" max="18" step="0.1" placeholder="HEMOGLOBIN"><label for="hemo">&ensp;18</label><br><br>
+        <input type="text" id="age" name="Age" placeholder="AGE"><br><br>
+        <h3>If You Dont Know Your BMI</h3>
+        <a href="https://calculate-your-bmi-10sec.herokuapp.com/">CHECK YOUR BMI</a><br><br>
+        <input type="text" id="bmi" name="Bmi" placeholder="BMI"><br><br>
+        <div class="radio-item">
+        <input type="radio" id="male" name="gender" value="male" onclick="ChangeColor();"> Male
+        <input type="radio" id="female" name="gender" value="female"> Female<br><br></div>
+        &ensp;<input type="checkbox" id="s" name="smoke" value="smoking">
+        <label for="smoking">Smoking</label><br><br>
+        &emsp;&emsp;&emsp;<input type="checkbox" name="kidney" value="kid">
+        <label for="kid">Kidney Disease</label><br><br>
+        <input type="checkbox" name="thyroid" value="thy">
+        <label for="thy">Thyroid</label><br><br>
+        <input type="submit" id="sub">
+        </div>
+        </form>
+    </center>   
+    {%if result == 0%}
+    <h1 align=center>You Dont Have Blood Pressure</h1> 
+    {%elif result == 1%}
+    <h1 align=center>You Have Blood Pressure</h1>    
+    {%endif%}                                                                                            
+</body>
+</html>
